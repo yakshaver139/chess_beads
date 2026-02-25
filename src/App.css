@@ -67,6 +67,63 @@ html, body, #root {
   overflow-y: auto;
 }
 
+.details-name {
+  font-size: 1.4rem;
+  margin-bottom: 0.25rem;
+}
+
+.details-eco {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #555;
+  background: #eee;
+  border-radius: 3px;
+  padding: 0.1rem 0.4rem;
+  margin-bottom: 0.75rem;
+}
+
+.details-moves {
+  font-family: "SF Mono", "Fira Code", monospace;
+  font-size: 0.9rem;
+  background: #f0f0f0;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.details-meta {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.4rem 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.details-meta dt {
+  font-weight: 600;
+  color: #555;
+}
+
+.details-style {
+  text-transform: capitalize;
+}
+
+.details-copy {
+  padding: 0.4rem 1rem;
+  font-size: 0.85rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.details-copy:hover {
+  background: #f0f0f0;
+}
+
 .placeholder {
   color: #888;
   font-style: italic;

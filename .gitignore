@@ -96,3 +96,9 @@ dist
 .worktrees/chess-2ps/
 # bd worktree
 .worktrees/chess-b1w/
+# bd worktree
+.worktrees/chess-2zk/
+# bd worktree
+.worktrees/chess-vez/
+# bd worktree
+.worktrees/chess-non/
