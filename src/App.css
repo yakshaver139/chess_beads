@@ -45,6 +45,35 @@ html, body, #root {
   color: #888;
 }
 
+/* ---- First-move filter buttons ---- */
+.first-move-filters {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.filter-btn {
+  padding: 0.3rem 0.6rem;
+  border: 1px solid #444;
+  border-radius: 4px;
+  background: transparent;
+  color: #ccc;
+  font-size: 0.8rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s, color 0.15s;
+}
+
+.filter-btn:hover {
+  background: #16213e;
+  color: #eee;
+}
+
+.filter-btn--active {
+  background: #3a86ff;
+  border-color: #3a86ff;
+  color: #fff;
+}
+
 /* ---- Main 2-column layout ---- */
 .app-main {
   display: flex;
@@ -73,8 +102,73 @@ html, body, #root {
   margin-top: 0.5rem;
 }
 
+/* ---- Openings list ---- */
+.openings-list {
+  list-style: none;
+  margin-top: 0.5rem;
+}
+
+.opening-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 0.45rem 0.25rem;
+  border-bottom: 1px solid #e4e4e4;
+  font-size: 0.88rem;
+  cursor: default;
+}
+
+.opening-item:last-child {
+  border-bottom: none;
+}
+
+.opening-eco {
+  font-weight: 600;
+  color: #555;
+  min-width: 2.5rem;
+}
+
+.opening-name {
+  flex: 1;
+}
+
+.opening-style {
+  font-size: 0.75rem;
+  padding: 0.1rem 0.4rem;
+  border-radius: 3px;
+  background: #e0e0e0;
+  color: #555;
+}
+
+.opening-style--aggressive { background: #ffe0e0; color: #a33; }
+.opening-style--positional { background: #dde8ff; color: #336; }
+.opening-style--classical { background: #ffefd5; color: #764; }
+.opening-style--solid { background: #ddf5dd; color: #363; }
+.opening-style--flexible { background: #f0e0ff; color: #636; }
+
+.empty-state {
+  color: #888;
+  font-style: italic;
+  margin-top: 1rem;
+  text-align: center;
+}
+
 /* ---- Responsive: stack on small screens ---- */
 @media (max-width: 640px) {
+  .header {
+    flex-wrap: wrap;
+  }
+
+  .header-search {
+    max-width: unset;
+    order: 1;
+    flex-basis: 100%;
+  }
+
+  .first-move-filters {
+    order: 2;
+  }
+
   .app-main {
     flex-direction: column;
   }
