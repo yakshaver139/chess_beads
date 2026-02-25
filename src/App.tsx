@@ -1,13 +1,15 @@
 import "./App.css";
+import Header from "./components/Header";
+import TreePanel from "./components/TreePanel";
+import DetailsPanel from "./components/DetailsPanel";
 
 export default function App() {
   return (
     <div className="app">
-      <header className="app-header">
-        <h1>Chess Beads</h1>
-      </header>
+      <Header />
       <main className="app-main">
-        <p>Welcome to Chess Beads</p>
+        <TreePanel />
+        <DetailsPanel />
       </main>
     </div>
   );
