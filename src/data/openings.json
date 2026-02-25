@@ -1,0 +1,98 @@
+[
+  {
+    "name": "Italian Game",
+    "eco": "C50",
+    "moves": ["e4", "e5", "Nf3", "Nc6", "Bc4"],
+    "ideas": "Develop quickly, target f7, build a strong center. White aims for an early d4 break.",
+    "style": "classical",
+    "famous": ["Morphy", "Kasparov"]
+  },
+  {
+    "name": "Ruy Lopez",
+    "eco": "C60",
+    "moves": ["e4", "e5", "Nf3", "Nc6", "Bb5"],
+    "ideas": "Pressure e5 indirectly via Nc6. White builds a slow positional squeeze with c3 and d4.",
+    "style": "positional",
+    "famous": ["Capablanca", "Karpov", "Caruana"]
+  },
+  {
+    "name": "Sicilian Najdorf",
+    "eco": "B90",
+    "moves": ["e4", "c5", "Nf3", "d6", "d4", "cxd4", "Nxd4", "Nf6", "Nc3", "a6"],
+    "ideas": "Black fights for queenside counterplay and avoids symmetry. Sharp, tactical middlegames.",
+    "style": "aggressive",
+    "famous": ["Fischer", "Kasparov", "Nakamura"]
+  },
+  {
+    "name": "Sicilian Dragon",
+    "eco": "B70",
+    "moves": ["e4", "c5", "Nf3", "d6", "d4", "cxd4", "Nxd4", "Nf6", "Nc3", "g6"],
+    "ideas": "Fianchetto the bishop to g7, pressure the long diagonal. Often leads to opposite-side castling attacks.",
+    "style": "aggressive",
+    "famous": ["Carlsen", "Radjabov"]
+  },
+  {
+    "name": "French Defense",
+    "eco": "C00",
+    "moves": ["e4", "e6", "d4", "d5"],
+    "ideas": "Solid but slightly cramped. Black aims to undermine White's center with ...c5. The light-squared bishop is a known challenge.",
+    "style": "solid",
+    "famous": ["Botvinnik", "Petrosian", "Short"]
+  },
+  {
+    "name": "Caro-Kann Defense",
+    "eco": "B10",
+    "moves": ["e4", "c6", "d4", "d5"],
+    "ideas": "Similar to the French but keeps the light-squared bishop active. Solid, low-risk structure for Black.",
+    "style": "solid",
+    "famous": ["Karpov", "Anand"]
+  },
+  {
+    "name": "Queen's Gambit Declined",
+    "eco": "D30",
+    "moves": ["d4", "d5", "c4", "e6"],
+    "ideas": "Black holds the center solidly with ...e6. A classical approach leading to strategic maneuvering.",
+    "style": "positional",
+    "famous": ["Lasker", "Karpov", "Carlsen"]
+  },
+  {
+    "name": "King's Indian Defense",
+    "eco": "E60",
+    "moves": ["d4", "Nf6", "c4", "g6", "Nc3", "Bg7"],
+    "ideas": "Black allows White a big center, then counterattacks with ...e5 or ...c5. Dynamic and combative.",
+    "style": "aggressive",
+    "famous": ["Fischer", "Kasparov", "Bronstein"]
+  },
+  {
+    "name": "Nimzo-Indian Defense",
+    "eco": "E20",
+    "moves": ["d4", "Nf6", "c4", "e6", "Nc3", "Bb4"],
+    "ideas": "Pin the knight on c3 to control e4. Flexible structure, Black can play for central or flank pressure.",
+    "style": "positional",
+    "famous": ["Nimzowitsch", "Tal", "Kramnik"]
+  },
+  {
+    "name": "English Opening",
+    "eco": "A10",
+    "moves": ["c4"],
+    "ideas": "Flexible flank opening. White controls d5 without committing the d-pawn. Can transpose into many systems.",
+    "style": "flexible",
+    "famous": ["Botvinnik", "Kramnik", "Carlsen"]
+  },
+  {
+    "name": "Scotch Game",
+    "eco": "C45",
+    "moves": ["e4", "e5", "Nf3", "Nc6", "d4"],
+    "ideas": "Immediate central break. Open game with quick development. White trades a central pawn for rapid piece play.",
+    "style": "aggressive",
+    "famous": ["Kasparov", "Carlsen"]
+  },
+  {
+    "name": "Pirc Defense",
+    "eco": "B07",
+    "moves": ["e4", "d6", "d4", "Nf6", "Nc3", "g6"],
+    "ideas": "Hypermodern: let White build a big center, then undermine it. The fianchettoed bishop eyes d4.",
+    "style": "flexible",
+    "famous": ["Grischuk", "Spassky"]
+  }
+]
