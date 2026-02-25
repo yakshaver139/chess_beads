@@ -92,3 +92,7 @@ node_modules
 dist
 .DS_Store
 *.local
+# bd worktree
+.worktrees/chess-2ps/
+# bd worktree
+.worktrees/chess-b1w/

@@ -1,15 +1,89 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
 .app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   font-family: system-ui, -apple-system, sans-serif;
 }
 
-.app-header {
-  text-align: center;
-  margin-bottom: 2rem;
+/* ---- Header ---- */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background: #1a1a2e;
+  color: #eee;
 }
 
+.header-title {
+  font-size: 1.25rem;
+  white-space: nowrap;
+}
+
+.header-search {
+  flex: 1;
+  max-width: 360px;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid #444;
+  border-radius: 4px;
+  background: #16213e;
+  color: #eee;
+  font-size: 0.9rem;
+}
+
+.header-search::placeholder {
+  color: #888;
+}
+
+/* ---- Main 2-column layout ---- */
 .app-main {
-  text-align: center;
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+.tree-panel {
+  width: 280px;
+  min-width: 200px;
+  border-right: 1px solid #ddd;
+  padding: 1rem;
+  overflow-y: auto;
+  background: #f7f7f8;
+}
+
+.details-panel {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.placeholder {
+  color: #888;
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+/* ---- Responsive: stack on small screens ---- */
+@media (max-width: 640px) {
+  .app-main {
+    flex-direction: column;
+  }
+
+  .tree-panel {
+    width: 100%;
+    min-width: unset;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+    max-height: 40vh;
+  }
 }
