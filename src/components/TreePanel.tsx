@@ -5,7 +5,7 @@ interface TreePanelProps {
   openings: Opening[];
 }
 
-export default function TreePanel({ openings }: TreePanelProps) {
+export default function TreePanel({ openings, onSelect }: TreePanelProps) {
   return (
     <aside className="tree-panel">
       <h2>Openings</h2>
@@ -14,7 +14,7 @@ export default function TreePanel({ openings }: TreePanelProps) {
       ) : (
         <ul className="openings-list">
           {openings.map((o) => (
-            <li key={o.eco + o.name} className="opening-item">
+            <li key={o.eco + o.name} className="opening-item" onClick={() => onSelect(o)}>
               <span className="opening-eco">{o.eco}</span>
               <span className="opening-name">{o.name}</span>
               <span className={`opening-style opening-style--${o.style}`}>
