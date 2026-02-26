@@ -180,7 +180,11 @@ export default function TreePanel({
     <aside className="tree-panel">
       <h2>Openings</h2>
       {childKeys.length === 0 ? (
-        <p className="empty-state">No openings match your filters.</p>
+        <div className="empty-state">
+          <span className="empty-state-icon" aria-hidden="true">&#9823;</span>
+          <p>No openings match your filters.</p>
+          <p className="empty-state-hint">Try a different search term or clear your filters.</p>
+        </div>
       ) : (
         <ul className="tree-root" role="tree">
           {childKeys.map((key) => (

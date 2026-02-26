@@ -12,8 +12,11 @@ export default function DetailsPanel({ opening }: DetailsPanelProps) {
   if (!opening) {
     return (
       <section className="details-panel">
-        <h2>Details</h2>
-        <p className="placeholder">Select an opening to view details</p>
+        <div className="empty-state-card">
+          <span className="empty-state-icon" aria-hidden="true">&#9822;</span>
+          <p className="placeholder">Select an opening to view details</p>
+          <p className="empty-state-hint">Click any opening in the tree to explore its moves, ideas, and famous practitioners.</p>
+        </div>
       </section>
     );
   }
