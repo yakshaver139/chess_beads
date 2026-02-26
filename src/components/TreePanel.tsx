@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { Opening, TreeNode } from "../types";
 import { buildTree } from "../data/buildTree";
 
@@ -6,10 +6,33 @@ interface TreePanelProps {
   openings: Opening[];
   onSelect: (opening: Opening) => void;
   selected: Opening | null;
+  isFiltered?: boolean;
 }
 
 function isSelected(a: Opening, b: Opening | null): boolean {
   return b !== null && a.eco === b.eco && a.name === b.name;
+}
+
+/** Compute all tree paths so every node is expanded. */
+function computeAllPaths(node: TreeNode, prefix = ""): Set<string> {
+  const paths = new Set<string>();
+  for (const [key, child] of Object.entries(node.children)) {
+    const p = `${prefix}/${key}`;
+    paths.add(p);
+    for (const cp of computeAllPaths(child, p)) paths.add(cp);
+  }
+  return paths;
+}
+
+/** Compute the tree paths needed to reveal a specific opening. */
+function pathsForOpening(opening: Opening): string[] {
+  const result: string[] = [];
+  let path = "";
+  for (const move of opening.moves) {
+    path += `/${move}`;
+    result.push(path);
+  }
+  return result;
 }
 
 function NodeView({
@@ -111,16 +134,36 @@ export default function TreePanel({
   openings,
   onSelect,
   selected,
+  isFiltered = false,
 }: TreePanelProps) {
   const tree = useMemo(() => buildTree(openings), [openings]);
 
+  const selectedRef = useRef(selected);
+  selectedRef.current = selected;
+
   const [expanded, setExpanded] = useState<Set<string>>(() => {
-    const init = new Set<string>();
-    for (const key of Object.keys(tree.children)) {
-      init.add(`/${key}`);
-    }
-    return init;
+    if (isFiltered) return computeAllPaths(tree);
+    return new Set(Object.keys(tree.children).map((k) => `/${k}`));
   });
+
+  // Skip effect on mount (useState initializer handles it)
+  const isMount = useRef(true);
+  useEffect(() => {
+    if (isMount.current) {
+      isMount.current = false;
+      return;
+    }
+    if (isFiltered) {
+      setExpanded(computeAllPaths(tree));
+    } else {
+      const init = new Set(Object.keys(tree.children).map((k) => `/${k}`));
+      const sel = selectedRef.current;
+      if (sel) {
+        for (const p of pathsForOpening(sel)) init.add(p);
+      }
+      setExpanded(init);
+    }
+  }, [tree, isFiltered]);
 
   const handleToggle = useCallback((path: string) => {
     setExpanded((prev) => {

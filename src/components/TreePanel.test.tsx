@@ -211,6 +211,52 @@ describe("TreePanel", () => {
     expect(variantItem.classList.contains("tree-opening-item--selected")).toBe(false);
   });
 
+  it("auto-expands all paths when isFiltered is true", () => {
+    render(
+      <TreePanel
+        openings={[italian]}
+        onSelect={() => {}}
+        selected={null}
+        isFiltered={true}
+      />,
+    );
+    // All nodes should be visible without manual expanding
+    expect(screen.getByText("e4")).toBeTruthy();
+    expect(screen.getByText("e5")).toBeTruthy();
+    expect(screen.getByText("Nf3")).toBeTruthy();
+    expect(screen.getByText("Nc6")).toBeTruthy();
+    expect(screen.getByText("Bc4")).toBeTruthy();
+    expect(screen.getByText("Italian Game")).toBeTruthy();
+  });
+
+  it("preserves path to selected opening when filter is cleared", () => {
+    const { rerender } = render(
+      <TreePanel
+        openings={[italian]}
+        onSelect={() => {}}
+        selected={italian}
+        isFiltered={true}
+      />,
+    );
+    // Verify Italian Game is visible while filtered
+    expect(screen.getByText("Italian Game")).toBeTruthy();
+
+    // Clear filter — now showing all three openings, Italian still selected
+    rerender(
+      <TreePanel
+        openings={[italian, english, ruyLopez]}
+        onSelect={() => {}}
+        selected={italian}
+        isFiltered={false}
+      />,
+    );
+    // Path to selected opening should remain expanded
+    expect(screen.getByText("Bc4")).toBeTruthy();
+    expect(screen.getByText("Italian Game")).toBeTruthy();
+    // English Opening is a first-level leaf, should also be visible
+    expect(screen.getByText("English Opening")).toBeTruthy();
+  });
+
   it("renders diverging branches (Italian + Ruy Lopez)", () => {
     render(
       <TreePanel

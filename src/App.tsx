@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import TreePanel from "./components/TreePanel";
@@ -19,6 +19,18 @@ export default function App() {
     [query, firstMove],
   );
 
+  const isFiltered = query !== "" || firstMove !== null;
+
+  // Clear selection when the selected opening is no longer in filtered results
+  useEffect(() => {
+    if (
+      selected &&
+      !filtered.some((o) => o.eco === selected.eco && o.name === selected.name)
+    ) {
+      setSelected(null);
+    }
+  }, [filtered, selected]);
+
   return (
     <div className="app">
       <Header
@@ -29,7 +41,12 @@ export default function App() {
         onFirstMoveChange={setFirstMove}
       />
       <main className="app-main">
-        <TreePanel openings={filtered} onSelect={setSelected} selected={selected} />
+        <TreePanel
+          openings={filtered}
+          onSelect={setSelected}
+          selected={selected}
+          isFiltered={isFiltered}
+        />
         <DetailsPanel opening={selected} />
       </main>
     </div>
