@@ -131,6 +131,11 @@ html, body, #root {
   margin-bottom: 0.75rem;
 }
 
+.details-board {
+  margin: 0.75rem 0 1rem;
+  max-width: 360px;
+}
+
 .details-moves {
   font-family: "SF Mono", "Fira Code", monospace;
   font-size: 0.9rem;

@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
+import { Chessboard } from "react-chessboard";
 import type { Opening } from "../types";
-import { movesToPgn } from "../utils";
+import { movesToFen, movesToPgn } from "../utils";
 
 interface DetailsPanelProps {
   opening: Opening | null;
@@ -8,6 +9,11 @@ interface DetailsPanelProps {
 
 export default function DetailsPanel({ opening }: DetailsPanelProps) {
   const [copied, setCopied] = useState(false);
+
+  const fen = useMemo(
+    () => (opening ? movesToFen(opening.moves) : undefined),
+    [opening],
+  );
 
   if (!opening) {
     return (
@@ -33,6 +39,17 @@ export default function DetailsPanel({ opening }: DetailsPanelProps) {
     <section className="details-panel">
       <h2 className="details-name">{opening.name}</h2>
       <span className="details-eco">{opening.eco}</span>
+
+      <div className="details-board">
+        <Chessboard
+          options={{
+            position: fen,
+            allowDragging: false,
+            darkSquareStyle: { backgroundColor: "#779952" },
+            lightSquareStyle: { backgroundColor: "#edeed1" },
+          }}
+        />
+      </div>
 
       <div className="details-moves">{pgn}</div>
 
