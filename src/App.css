@@ -159,49 +159,109 @@ html, body, #root {
   margin-top: 0.5rem;
 }
 
-/* ---- Openings list ---- */
-.openings-list {
+/* ---- Move tree ---- */
+.tree-root,
+.tree-children,
+.tree-opening-list {
   list-style: none;
+}
+
+.tree-root {
   margin-top: 0.5rem;
 }
 
-.opening-item {
+.tree-node-row {
   display: flex;
   align-items: baseline;
-  gap: 0.5rem;
-  padding: 0.45rem 0.25rem;
-  border-bottom: 1px solid #e4e4e4;
+  gap: 0.35rem;
+  padding: 0.3rem 0;
+  border-radius: 4px;
+  cursor: pointer;
   font-size: 0.88rem;
-  cursor: default;
+  user-select: none;
+  transition: background 0.12s;
 }
 
-.opening-item:last-child {
-  border-bottom: none;
+.tree-node-row:hover {
+  background: #e8e8ec;
 }
 
-.opening-eco {
+.tree-node-row--selected {
+  background: #d0e0ff;
+}
+
+.tree-node-row--selected:hover {
+  background: #c0d4f8;
+}
+
+.tree-toggle {
+  display: inline-block;
+  width: 1rem;
+  text-align: center;
+  flex-shrink: 0;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.tree-toggle--leaf {
+  visibility: hidden;
+}
+
+.tree-move {
+  font-family: "SF Mono", "Fira Code", monospace;
+  font-weight: 600;
+}
+
+.tree-opening-label {
+  color: #666;
+  font-size: 0.8rem;
+  margin-left: 0.25rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tree-count {
+  font-size: 0.7rem;
+  background: #d0d0d6;
+  color: #444;
+  border-radius: 8px;
+  padding: 0 0.4rem;
+  margin-left: 0.25rem;
+  line-height: 1.4;
+}
+
+.tree-opening-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  padding: 0.25rem 0;
+  border-radius: 4px;
+  font-size: 0.82rem;
+  cursor: pointer;
+  color: #444;
+  transition: background 0.12s;
+}
+
+.tree-opening-item:hover {
+  background: #e8e8ec;
+}
+
+.tree-opening-item--selected {
+  background: #d0e0ff;
+  color: #222;
+}
+
+.tree-opening-item--selected:hover {
+  background: #c0d4f8;
+}
+
+.tree-opening-eco {
   font-weight: 600;
   color: #555;
-  min-width: 2.5rem;
+  min-width: 2.2rem;
+  font-size: 0.78rem;
 }
-
-.opening-name {
-  flex: 1;
-}
-
-.opening-style {
-  font-size: 0.75rem;
-  padding: 0.1rem 0.4rem;
-  border-radius: 3px;
-  background: #e0e0e0;
-  color: #555;
-}
-
-.opening-style--aggressive { background: #ffe0e0; color: #a33; }
-.opening-style--positional { background: #dde8ff; color: #336; }
-.opening-style--classical { background: #ffefd5; color: #764; }
-.opening-style--solid { background: #ddf5dd; color: #363; }
-.opening-style--flexible { background: #f0e0ff; color: #636; }
 
 .empty-state {
   color: #888;

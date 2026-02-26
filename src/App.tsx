@@ -29,7 +29,7 @@ export default function App() {
         onFirstMoveChange={setFirstMove}
       />
       <main className="app-main">
-        <TreePanel openings={filtered} onSelect={setSelected} />
+        <TreePanel openings={filtered} onSelect={setSelected} selected={selected} />
         <DetailsPanel opening={selected} />
       </main>
     </div>
